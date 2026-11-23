@@ -1,0 +1,25 @@
+.photo {
+  position:relative;
+  display:inline-block;
+  max-width:100%;
+}
+
+.photo img {
+  display:block;
+  max-width:100%;
+  height:auto;
+}
+
+.mark {
+  position:absolute;
+  transform:translate(-50%,-50%);
+  color:#fff;
+  background:#454fbbd9;
+  width:22px;
+  height:22px;
+  line-height:22px;
+  text-align:center;
+  border-radius:50%;
+  font-size:18px;
+  box-shadow:0 0 0 1px #fff;
+}

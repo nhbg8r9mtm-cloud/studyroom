@@ -1,0 +1,313 @@
+:root {
+  color-scheme:dark;
+  --bg:#11131a;
+  --card:#1b1e28;
+  --line:#343846;
+  --ink:#f3f4f8;
+  --muted:#aeb4c4;
+  --accent:#a9b8ff;
+  --good:#a2e6be;
+  --warn:#ffd28a;
+  font:17px/1.55 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  padding:0 0 calc(78px + env(safe-area-inset-bottom));
+}
+
+header {
+  position:sticky;
+  top:0;
+  background:#11131aee;
+  backdrop-filter:blur(12px);
+  padding:12px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid var(--line);
+  z-index:2;
+}
+
+header strong {
+  font-size:21px;
+}
+
+#version {
+  font-size:10px;
+  color:var(--muted);
+}
+
+main {
+  max-width:500px;
+  margin:auto;
+  padding:16px;
+}
+
+.card {
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:17px;
+  margin:0 0 13px;
+}
+
+.card h2 {
+  font-size:21px;
+  line-height:1.35;
+  margin:5px 0 12px;
+}
+
+.muted,.meta {
+  color:var(--muted);
+  font-size:14px;
+}
+
+.why {
+  color:var(--muted);
+  font-size:14px;
+  margin-top:4px;
+}
+
+.row {
+  display:flex;
+  gap:9px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.btn,button {
+  font:inherit;
+  color:var(--ink);
+  background:#262b39;
+  border:1px solid #464c5e;
+  border-radius:12px;
+  padding:12px 15px;
+  min-height:48px;
+  cursor:pointer;
+}
+
+.btn.primary {
+  background:var(--accent);
+  color:#141827;
+  border-color:var(--accent);
+  font-weight:700;
+}
+
+.btn.small {
+  padding:7px 11px;
+  min-height:40px;
+}
+
+.btn:disabled {
+  opacity:.55;
+}
+
+.rec {
+  border-top:1px solid var(--line);
+  padding:13px 0;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:10px;
+  align-items:center;
+}
+
+.rec:first-of-type {
+  border-top:0;
+}
+
+.rec-title {
+  font-weight:700;
+}
+
+.badge {
+  font-size:12px;
+  color:var(--accent);
+}
+
+.banner {
+  padding:11px 13px;
+  border-radius:12px;
+  background:#3a3020;
+  color:var(--warn);
+  margin-bottom:12px;
+}
+
+.lesson p {
+  margin:9px 0;
+}
+
+.lesson h3 {
+  font-size:19px;
+}
+
+.figure {
+  margin:15px 0;
+}
+
+.figure img {
+  max-width:100%;
+  height:auto;
+  border-radius:10px;
+}
+
+.mark {
+  font-size:13px;
+  color:var(--accent);
+}
+
+.q {
+  font-size:20px;
+  font-weight:700;
+  margin:13px 0;
+}
+
+.choices {
+  display:grid;
+  gap:9px;
+}
+
+.choice {
+  text-align:left;
+  min-height:54px;
+}
+
+.choice.good {
+  border-color:var(--good);
+}
+
+.choice.bad {
+  border-color:#ff9c9c;
+}
+
+.input {
+  width:100%;
+  font:inherit;
+  padding:13px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:#11131a;
+  color:var(--ink);
+  margin:8px 0;
+}
+
+.tokens {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:10px 0;
+}
+
+.token {
+  min-height:44px;
+  padding:8px 12px;
+}
+
+.feedback {
+  padding:12px;
+  margin:12px 0;
+  border-radius:12px;
+  background:#263a30;
+}
+
+.feedback.bad {
+  background:#402b2b;
+}
+
+.check {
+  display:flex;
+  gap:12px;
+  padding:11px 2px;
+  border-bottom:1px solid var(--line);
+}
+
+.check input {
+  width:22px;
+  height:22px;
+}
+
+.progress {
+  height:7px;
+  background:#333849;
+  border-radius:8px;
+  margin:10px 0;
+}
+
+.progress i {
+  display:block;
+  height:100%;
+  background:var(--accent);
+  border-radius:8px;
+}
+
+#tabs {
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:4;
+  background:#1a1c25f5;
+  backdrop-filter:blur(12px);
+  border-top:1px solid var(--line);
+  padding:7px 4px calc(7px + env(safe-area-inset-bottom));
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  max-width:520px;
+  margin:auto;
+}
+
+#tabs button {
+  border:0;
+  background:none;
+  padding:6px 1px;
+  min-height:52px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+#tabs button.on {
+  color:var(--accent);
+  font-weight:700;
+}
+
+#tabs span {
+  display:block;
+  font-size:19px;
+}
+
+a {
+  color:var(--accent);
+}
+
+.figure { margin: 15px 0; }
+.figure .svg svg { display: block; width: 100%; height: auto; max-width: 680px; }
+.figure .svg text { fill: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif; font-size: 15px; }
+.figure .svg .mu { fill: var(--muted); }
+.figure .svg .sm { font-size: 12px; }
+.figure .svg .lg { font-size: 19px; }
+.figure .svg .b { font-weight: 700; }
+.figure .svg .box { fill: var(--card); stroke: var(--line); stroke-width: 1.5; }
+.figure .svg .soft { fill: #262b39; }
+.figure .svg .chip { fill: #333849; }
+.figure .svg .good { fill: #263a30; }
+.figure .svg .gt { fill: var(--good); }
+.figure .svg .gs { stroke: var(--good); fill: none; stroke-width: 2.5; }
+.figure .svg .warn { fill: #3a3020; }
+.figure .svg .wt { fill: var(--warn); }
+.figure .svg .badf, .figure .svg .bt { fill: #ff9c9c; }
+.figure .svg .bs { stroke: #ff9c9c; fill: none; stroke-width: 2; stroke-dasharray: 5 4; }
+.figure .svg .acc, .figure .svg .at { fill: var(--accent); }
+.figure .svg .inv { fill: #141827; }
+.figure .svg .as { stroke: var(--accent); fill: none; stroke-width: 2.5; }
+.figure .svg .ln, .figure .svg .dash { stroke: var(--muted); fill: none; stroke-width: 1.5; }
+.figure .svg .dash { stroke-dasharray: 4 4; }
+.figure .photo { position: relative; display: inline-block; max-width: 100%; }
+.figure .photo img { display: block; max-width: 100%; height: auto; }
+.figure .photo .mark { position: absolute; transform: translate(-50%, -50%); width: 22px; height: 22px; line-height: 22px; text-align: center; border-radius: 50%; font-size: 13px; color: #fff; background: #454fbbd9; box-shadow: 0 0 0 1px #fff; }
+.figure ol { margin-top: 8px; }

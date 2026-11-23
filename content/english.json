@@ -1,0 +1,535 @@
+{
+"subject": "english",
+"name": "영어",
+"monthTarget": 20,
+"_help": "문제 형식: 객관식 {q,c(첫 번째가 정답, 화면에서 섞음),x(해설)} · 듣기 {say,q,c} · 빈칸 {type:fill,q,a:[정답들]} · 순서 {type:order,q,t:[낱말],a:정답문장}. 문제는 끝에만 추가하고 순서를 바꾸지 않기(id가 순서로 정해짐). 빼려면 off:true.",
+"order": ["e01","e02","e03","e04","e05","e06","e07","e08","e09","e10","e11","e12","e13","e14","e15","e16","e17","e18","e19","e20"],
+"concepts": [
+{"id":"e01","name":"인사와 자기소개","level":1,"prereq":[],"minutes":12,
+ "body":["# 처음 만났을 때",{"img": "e01-greet.svg", "cap": "인사 → 이름 → Nice to meet you 순서"},"Hello / Hi → 이름 말하기 → Nice to meet you. 이 순서면 충분해요.",
+  ["Hello, I'm Minsu.","안녕하세요, 저는 민수예요."],["Nice to meet you.","만나서 반가워요."],["Nice to meet you, too.","저도 만나서 반가워요."],
+  "# 안부 묻기",["How are you?","잘 지내요?"],["I'm good, thanks. And you?","잘 지내요, 고마워요. 당신은요?"],
+  "! I'm은 I am을 줄인 말이에요. 말할 때는 거의 항상 I'm이라고 해요.",
+  "# 헤어질 때",["See you later.","나중에 봐요."],["Have a nice day.","좋은 하루 보내요."]],
+ "items":{
+  "lesson":[
+   {"q":"처음 만난 사람에게 '만나서 반가워요'는?","c":["Nice to meet you.","See you later.","How are you?","I'm fine."]},
+   {"say":"How are you?","q":"들은 말에 알맞은 대답은?","c":["I'm good, thanks.","Nice to meet you, too.","My name is Minsu.","See you."]},
+   {"type":"fill","q":"Hello, ___ Minsu. (저는 민수예요)","a":["I'm","I am"]},
+   {"type":"order","q":"순서대로: 저도 만나서 반가워요.","t":["you","Nice","too","to","meet"],"a":"Nice to meet you too"}],
+  "diag":[
+   {"q":"'좋은 하루 보내요'에 알맞은 영어는?","c":["Have a nice day.","Nice to meet you.","How are you?","I'm good."]},
+   {"say":"Nice to meet you.","q":"들은 말의 뜻은?","c":["만나서 반가워요","잘 지내요?","나중에 봐요","고마워요"]},
+   {"q":"'How are you?'의 대답으로 알맞지 않은 것은?","c":["Nice to meet you, too.","I'm good.","I'm fine, thanks.","Not bad."]}],
+  "month":[
+   {"q":"'나중에 봐요'는?","c":["See you later.","Have a nice day.","Nice to meet you.","How are you?"]}],
+  "review": [
+   {"q":"Mina가 'Good morning.'이라고 인사했어요. 알맞은 대답은?","c":["Good morning.","Good night.","I'm twelve.","I am a teacher."]},
+   {"q":"빈칸에 알맞은 말을 고르세요: Hi, ___ Joon. (새 친구에게 인사)","c":["I'm","are","is","am not"]},
+   {"q":"'What's your name?'에 알맞은 대답은?","c":["I'm Yuna.","I'm fine, thanks.","See you tomorrow.","Nice day."]},
+   {"q":"친구가 'See you tomorrow.'라고 했어요. 무슨 뜻인가요?","c":["내일 봐요","오늘 만나요","반가워요","잘 지내요?"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: Nice to meet you, ___. (저도요)","c":["too","two","to","also meet"]},
+   {"q":"들은 영어 인사말의 뜻은?","c":["나중에 봐요","좋은 아침이에요","잘 지내요?","만나서 반가워요"],"say":"See you later."}
+  ]
+ }},
+
+{"id":"e02","name":"be동사 (am / is / are)","level":1,"prereq":[],"minutes":12,
+ "body":["# be동사 = '~이에요 / ~에 있어요'",{"img": "e02-be.svg", "cap": "주어에 따라 am · are · is"},"주어에 따라 모양이 바뀌어요: I → am, you·we·they → are, he·she·it → is",
+  ["I am a teacher.","나는 선생님이에요."],["You are kind.","너는 친절해."],["She is my sister.","그녀는 내 여동생이에요."],["They are at church.","그들은 교회에 있어요."],
+  "! 줄임말: I'm, you're, he's, she's, it's, we're, they're",["It's cold today.","오늘 추워요."]],
+ "items":{
+  "lesson":[
+   {"type":"fill","q":"She ___ a nurse.","a":["is"]},
+   {"q":"빈칸: They ___ my friends.","c":["are","is","am","be"]},
+   {"say":"We are students.","q":"들은 문장의 뜻은?","c":["우리는 학생이에요","그는 학생이에요","나는 학생이 아니에요","너는 학생이니?"]},
+   {"type":"order","q":"순서대로: 그는 키가 커요.","t":["is","He","tall"],"a":"He is tall"}],
+  "diag":[
+   {"type":"fill","q":"I ___ happy.","a":["am"]},
+   {"q":"빈칸: My brother ___ a cook.","c":["is","are","am","be"]},
+   {"q":"틀린 문장은?","c":["He are busy.","I am busy.","You are busy.","It is new."]}],
+  "month":[
+   {"q":"빈칸: You and I ___ friends.","c":["are","is","am","be"],"x":"You and I = 우리(we)라서 are"}],
+  "review": [
+   {"q":"빈칸에 알맞은 말을 고르세요: The room ___ clean.","c":["is","are","am","be"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: My parents ___ at home.","c":["are","is","am","be"]},
+   {"q":"문법에 맞는 문장을 고르세요.","c":["I am ready.","I are ready.","I is ready.","I be ready."]},
+   {"q":"빈칸에 알맞은 말을 고르세요: The dogs ___ small.","c":["are","is","am","be"]},
+   {"q":"한 사람을 설명하는 문장 중 문법에 맞는 것은?","c":["Tom is a cook.","Tom are a cook.","Tom am a cook.","Tom be a cook."]},
+   {"q":"들은 영어 문장의 뜻은?","c":["방이 깨끗해요","방이 커요","방에 있어요","방이 추워요"],"say":"The room is clean."}
+  ]
+ }},
+
+{"id":"e03","name":"대명사와 소유격 (my, your, his …)","level":1,"prereq":["e02"],"minutes":12,
+ "body":["# '나, 너, 그'와 '나의, 너의, 그의'",{"img": "e03-pron.svg", "cap": "주어(~는)와 소유격(~의) 짝"},"I → my · you → your · he → his · she → her · we → our · they → their · it → its",
+  ["This is my phone.","이건 내 휴대폰이에요."],["Her name is Jisu.","그녀의 이름은 지수예요."],["Is this your bag?","이거 네 가방이야?"],["Our church is big.","우리 교회는 커요."],
+  "! 사람 이름 뒤에 's를 붙이면 '~의': Minsu's car (민수의 차)"],
+ "items":{
+  "lesson":[
+   {"q":"'그의 이름'은?","c":["his name","he name","him name","her name"]},
+   {"type":"fill","q":"They love ___ dog. (그들의 개)","a":["their"]},
+   {"q":"빈칸: She is ___ mother. (나의)","c":["my","I","me","mine"]},
+   {"say":"This is our teacher.","q":"들은 문장의 뜻은?","c":["이분은 우리 선생님이에요","이분은 그들의 선생님이에요","이분은 내 선생님이에요","이분은 그녀의 선생님이에요"]}],
+  "diag":[
+   {"q":"'우리의 집'은?","c":["our house","we house","us house","ours house"]},
+   {"type":"fill","q":"Is this ___ pen? (너의)","a":["your"]},
+   {"q":"빈칸: That is Minsu___ bike. (민수의)","c":["'s","s'","is","his"]}],
+  "month":[
+   {"q":"빈칸: The cat is cute. ___ eyes are blue.","c":["Its","It","It's","Their"],"x":"it의 소유격은 its예요. it's는 it is를 줄인 말."}],
+  "review": [
+   {"q":"빈칸에 알맞은 말을 고르세요: I have a sister. ___ sister is kind.","c":["My","I","Me","Mine"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: He has a bike. It is ___ bike.","c":["his","he","him","her"]},
+   {"q":"'그녀의 책'을 영어로 바르게 쓴 것은?","c":["her book","she book","hers book","his book"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: We live here. This is ___ home.","c":["our","we","us","ours"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: You have a hat. Is this ___ hat?","c":["your","you","yours","his"]},
+   {"q":"들은 영어 문장의 뜻은?","c":["우리 가족은 여기 있어요","그의 가족은 집에 있어요","그녀는 가족이 있어요","우리 집은 커요"],"say":"Our family is here."}
+  ]
+ }},
+
+{"id":"e04","name":"a / an 과 복수 -s","level":1,"prereq":[],"minutes":12,
+ "body":["# 하나는 a / an",{"img": "e04-aan.svg", "cap": "a / an은 첫 소리로, 여럿이면 -s"},"셀 수 있는 것 하나 앞에는 a. 발음이 모음 소리(아·에·이·오·우)로 시작하면 an.",
+  ["a book, a car","책 한 권, 차 한 대"],["an apple, an hour","사과 하나, 한 시간"],
+  "! hour는 h를 소리 내지 않아서 an hour예요. 철자보다 소리가 기준이에요.",
+  "# 여러 개면 끝에 -s / -es",["two books, three boxes","책 두 권, 상자 세 개"],
+  "자주 쓰는 예외: man → men, woman → women, child → children, person → people",["Many people are here.","많은 사람이 여기 있어요."]],
+ "items":{
+  "lesson":[
+   {"q":"빈칸: I have ___ umbrella.","c":["an","a","two","many"]},
+   {"type":"fill","q":"one child, two ___","a":["children"]},
+   {"q":"맞는 것은?","c":["three boxes","three boxs","three box","a boxes"]},
+   {"say":"I want an orange.","q":"들은 문장의 뜻은?","c":["오렌지 하나 원해요","오렌지 두 개 원해요","사과 하나 원해요","오렌지가 있어요"]}],
+  "diag":[
+   {"q":"빈칸: She is ___ engineer.","c":["an","a","two","many"]},
+   {"type":"fill","q":"one man, two ___","a":["men"]},
+   {"q":"빈칸: It takes ___ hour.","c":["an","a","two","many"]}],
+  "month":[
+   {"q":"맞는 것은?","c":["five people","five peoples","a peoples","five peoplees"]}],
+  "review": [
+   {"q":"자연스러운 영어 표현을 고르세요.","c":["an egg","a egg","two egg","an eggs"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: one dish, three ___.","c":["dishes","dish","dishs","a dishes"]},
+   {"q":"문법에 맞는 표현을 고르세요.","c":["a small cup","an small cup","two small cup","a small cups"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: one woman, two ___.","c":["women","womans","womanes","woman"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: I see ___ old bus.","c":["an","a","many","two"]},
+   {"q":"들은 영어 문장에 나오는 것은?","c":["오렌지 하나","사과 두 개","상자 세 개","책 한 권"],"say":"I have an orange."}
+  ]
+ }},
+
+{"id":"e05","name":"숫자와 나이·전화번호","level":1,"prereq":[],"minutes":12,
+ "body":["# 1~20",{"img": "e05-num.svg", "cap": "-teen은 뒤를, -ty는 앞을 세게"},"one two three four five six seven eight nine ten · eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty",
+  "# 10 단위","twenty(20) thirty(30) forty(40) fifty(50) sixty(60) seventy(70) eighty(80) ninety(90) one hundred(100)",
+  "! 13(thirteen)과 30(thirty)이 헷갈리기 쉬워요. -teen은 뒤를 길고 세게, -ty는 앞을 세게 말해요.",
+  ["thirteen, thirty","13, 30"],["I'm thirty-two years old.","저는 서른두 살이에요."],["My number is 010-2345-6789.","제 번호는 010-2345-6789예요."],
+  "! 전화번호는 숫자를 하나씩 읽어요. 0은 보통 oh라고 해요."]
+ ,"items":{
+  "lesson":[
+   {"q":"45를 영어로?","c":["forty-five","fourty-five","fifty-four","fourteen-five"]},
+   {"say":"fifteen","q":"들은 숫자는?","c":["15","50","5","51"]},
+   {"type":"fill","q":"12 = ___","a":["twelve"]},
+   {"say":"I'm thirty years old.","q":"몇 살이라고 했나요?","c":["30","13","33","3"]}],
+  "diag":[
+   {"say":"eighty-six","q":"들은 숫자는?","c":["86","68","16","96"]},
+   {"q":"19를 영어로?","c":["nineteen","ninety","ninteen","nine-ten"]},
+   {"type":"fill","q":"40 = ___","a":["forty"]}],
+  "month":[
+   {"say":"My son is seventeen.","q":"아들은 몇 살?","c":["17","70","7","27"]}],
+  "review": [
+   {"q":"'sixty-four'는 몇을 뜻하나요?","c":["64","46","16","60"]},
+   {"q":"들은 영어 숫자에 해당하는 숫자를 고르세요.","c":["21","12","20","31"],"say":"twenty-one"},
+   {"q":"빈칸에 알맞은 말을 고르세요: 17 = ___.","c":["seventeen","seventy","seven-teen","seventen"]},
+   {"q":"90을 영어로 바르게 쓴 것은?","c":["ninety","nineteen","ninty","nine-ty"]},
+   {"q":"들은 사람은 몇 살인가요?","c":["40","14","4","44"],"say":"My age is forty."},
+   {"q":"들은 영어 숫자는?","c":["52","25","15","50"],"say":"fifty-two"}
+  ]
+ }},
+
+{"id":"e06","name":"be동사 부정·질문","level":2,"prereq":["e02"],"minutes":12,
+ "body":["# 아니라고 할 때: be동사 + not",{"img": "e06-beq.svg", "cap": "not은 be동사 뒤, 질문은 be동사를 앞으로"},["I'm not tired.","나는 안 피곤해요."],["He isn't here.","그는 여기 없어요."],["They aren't busy.","그들은 바쁘지 않아요."],
+  "! is not = isn't, are not = aren't. am not은 줄이지 않고 I'm not이라고 해요.",
+  "# 물을 때: be동사를 맨 앞으로",["Are you ready?","준비됐어요?"],["Is she your friend?","그녀가 네 친구야?"],
+  "대답: Yes, I am. / No, I'm not. / Yes, she is. / No, she isn't."],
+ "items":{
+  "lesson":[
+   {"q":"'그는 학생이 아니에요'는?","c":["He isn't a student.","He not is a student.","He don't a student.","He aren't a student."]},
+   {"type":"order","q":"순서대로: 너 배고파?","t":["hungry","Are","you"],"a":"Are you hungry"},
+   {"q":"'Is it hot?'에 '아니요'로 답하면?","c":["No, it isn't.","No, it aren't.","No, it don't.","No, is it."]},
+   {"say":"Are you okay?","q":"들은 말의 뜻은?","c":["괜찮아요?","좋아요.","네, 괜찮아요.","안 괜찮아요."]}],
+  "diag":[
+   {"q":"빈칸: We ___ late. (우리는 안 늦었어요)","c":["aren't","isn't","amn't","don't"]},
+   {"type":"order","q":"순서대로: 그녀는 집에 있어요?","t":["home","Is","at","she"],"a":"Is she at home"},
+   {"q":"'Are they your parents?'에 '네'로 답하면?","c":["Yes, they are.","Yes, they is.","Yes, I am.","Yes, they do."]}],
+  "month":[
+   {"type":"fill","q":"I'm ___ sad. (나는 슬프지 않아요)","a":["not"]}],
+  "review": [
+   {"q":"문법에 맞는 부정문을 고르세요.","c":["The door isn't open.","The door not is open.","The door don't open.","The door aren't open."]},
+   {"q":"다음 단어를 바른 순서로 배열한 문장은? Are / they / busy?","c":["Are they busy","They are busy","Busy are they","Are busy they"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: ___ your mother at work?","c":["Is","Are","Am","Does"]},
+   {"q":"'Are we early?'에 '아니요'라고 답할 때 빈칸에 알맞은 말은? No, ___.","c":["we aren't","we isn't","we don't","we am not"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: I ___ afraid.","c":["am not","isn't","aren't","don't"]},
+   {"q":"들은 질문은 무엇을 묻나요?","c":["그들이 집에 있는지","그들이 집에 갔는지","그들이 바쁜지","그들이 집을 좋아하는지"],"say":"Are they at home?"}
+  ]
+ }},
+
+{"id":"e07","name":"일반동사 현재 (like / likes)","level":2,"prereq":["e02","e03"],"minutes":12,
+ "body":["# 일반동사 = 행동·상태를 나타내는 말 (like, go, eat, work …)",{"img": "e07-s.svg", "cap": "he · she · it이면 동사에 -s"},["I like coffee.","나는 커피를 좋아해요."],["We go to church on Sunday.","우리는 일요일에 교회에 가요."],
+  "# he·she·it(한 사람·하나)이면 동사 끝에 -s",["She likes music.","그녀는 음악을 좋아해요."],["He works at a bank.","그는 은행에서 일해요."],
+  "! -es: go → goes, watch → watches · y → ies: study → studies · 예외: have → has",["My dad has a car.","우리 아빠는 차가 있어요."]],
+ "items":{
+  "lesson":[
+   {"q":"빈칸: She ___ English.","c":["studies","study","studys","is study"],"x":"study처럼 자음+y로 끝나면 y를 i로 바꾸고 -es"},
+   {"type":"fill","q":"He ___ a dog. (have)","a":["has"]},
+   {"q":"틀린 문장은?","c":["They plays piano.","I play piano.","She plays piano.","We play piano."]},
+   {"say":"My brother lives in Seoul.","q":"들은 문장의 뜻은?","c":["내 형은 서울에 살아요","내 형은 서울에 갔어요","나는 서울에 살아요","내 형은 서울을 좋아해요"]}],
+  "diag":[
+   {"type":"fill","q":"My mom ___ TV every night. (watch)","a":["watches"]},
+   {"q":"빈칸: I ___ in Gunsan.","c":["live","lives","living","am live"]},
+   {"q":"빈칸: It ___ a lot here. (rain)","c":["rains","rain","raines","is rain"]}],
+  "month":[
+   {"type":"order","q":"순서대로: 그녀는 아침을 먹어요.","t":["eats","She","breakfast"],"a":"She eats breakfast"}],
+  "review": [
+   {"q":"빈칸에 알맞은 말을 고르세요: My aunt ___ tea every day.","c":["drinks","drink","drinking","drank"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: We ___ music after dinner.","c":["listen to","listens to","listening","listened to"]},
+   {"q":"문법에 맞는 문장을 고르세요.","c":["The bus stops here.","The bus stop here.","The bus stopping here.","The bus stopped here every day."]},
+   {"q":"빈칸에 알맞은 말을 고르세요: Jina ___ her room on Saturday. (clean)","c":["cleans","clean","cleaning","cleaned"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: My friends ___ soccer at school.","c":["play","plays","playing","played"]},
+   {"q":"들은 영어 문장의 뜻은?","c":["그녀는 뉴스를 봐요","그녀는 신문을 써요","그녀는 뉴스를 봤어요","그녀는 뉴스를 좋아해요"],"say":"She watches the news."}
+  ]
+ }},
+
+{"id":"e08","name":"do / does 부정·질문","level":2,"prereq":["e07"],"minutes":12,
+ "body":["# 일반동사 부정: don't / doesn't + 동사원형",{"img": "e08-do.svg", "cap": "Do / Does를 앞에 두고 동사는 원래 모양"},["I don't drink coffee.","나는 커피를 안 마셔요."],["She doesn't eat meat.","그녀는 고기를 안 먹어요."],
+  "! doesn't 뒤에는 -s를 빼요: She doesn't likes (X) → She doesn't like (O)",
+  "# 질문: Do / Does를 맨 앞에",["Do you play guitar?","기타 쳐요?"],["Does he speak English?","그는 영어 해요?"],
+  "대답: Yes, I do. / No, I don't. / Yes, he does. / No, he doesn't."],
+ "items":{
+  "lesson":[
+   {"q":"'그는 운전 안 해요'는?","c":["He doesn't drive.","He don't drive.","He doesn't drives.","He isn't drive."]},
+   {"type":"fill","q":"___ you like pizza?","a":["Do"]},
+   {"q":"'Does she work here?'에 '아니요'로 답하면?","c":["No, she doesn't.","No, she don't.","No, she isn't.","No, she not."]},
+   {"say":"Do you know him?","q":"들은 말의 뜻은?","c":["그 사람 알아요?","그 사람 알아요.","그 사람 몰라요.","그 사람 어디 있어요?"]}],
+  "diag":[
+   {"q":"빈칸: They ___ watch TV.","c":["don't","doesn't","aren't","isn't"]},
+   {"type":"order","q":"순서대로: 너는 노래하는 거 좋아해?","t":["like","Do","singing","you"],"a":"Do you like singing"},
+   {"type":"fill","q":"My dad ___ smoke. (안 피워요)","a":["doesn't","does not"]}],
+  "month":[
+   {"q":"틀린 문장은?","c":["Does she plays tennis?","Do they play tennis?","Does he play tennis?","Do you play tennis?"]}],
+  "review": [
+   {"q":"빈칸에 알맞은 말을 고르세요: ___ your brother read comics?","c":["Does","Do","Is","Are"]},
+   {"q":"문법에 맞는 부정문을 고르세요.","c":["We don't need a car.","We doesn't need a car.","We not need a car.","We aren't need a car."]},
+   {"q":"'Do they cook?'에 '네'라고 답할 때 빈칸에 알맞은 말은? Yes, they ___.","c":["do","does","are","is"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: She doesn't ___ fish.","c":["eat","eats","eating","ate"]},
+   {"q":"다음 단어를 바른 순서로 배열한 의문문은? Do / I / need / a ticket?","c":["Do I need a ticket","I do need a ticket","Need I do a ticket","Do need I a ticket"]},
+   {"q":"들은 질문은 무엇을 묻나요?","c":["그가 테니스를 치는지","그가 테니스를 쳤는지","그가 어디 사는지","그가 바쁜지"],"say":"Does he play tennis?"}
+  ]
+ }},
+
+{"id":"e09","name":"시간과 요일","level":2,"prereq":["e05"],"minutes":12,
+ "body":["# 몇 시예요?",{"img": "e09-time.svg", "cap": "시계 읽기: It's three thirty."},["What time is it?","몇 시예요?"],["It's seven o'clock.","7시 정각이에요."],["It's three thirty.","3시 30분이에요."],
+  "! a.m. = 오전, p.m. = 오후: 9 a.m. (오전 9시), 6 p.m. (오후 6시)",
+  "# 요일","Monday 월 · Tuesday 화 · Wednesday 수 · Thursday 목 · Friday 금 · Saturday 토 · Sunday 일",
+  ["What day is it today?","오늘 무슨 요일이에요?"],["It's Sunday.","일요일이에요."]],
+ "items":{
+  "lesson":[
+   {"q":"목요일은?","c":["Thursday","Tuesday","Wednesday","Saturday"]},
+   {"say":"It's eight fifteen.","q":"몇 시라고 했나요?","c":["8시 15분","8시 50분","5시 15분","8시 5분"]},
+   {"q":"'오후 2시'는?","c":["2 p.m.","2 a.m.","p.m. 2","2 o'clock a.m."]},
+   {"type":"fill","q":"What ___ is it? (몇 시예요?)","a":["time"]}],
+  "diag":[
+   {"q":"수요일은?","c":["Wednesday","Monday","Thursday","Friday"]},
+   {"say":"It's six thirty.","q":"몇 시라고 했나요?","c":["6시 30분","6시 13분","7시 30분","3시 6분"]},
+   {"type":"fill","q":"What ___ is it today? (무슨 요일)","a":["day"]}],
+  "month":[
+   {"say":"The service starts at eleven a.m.","q":"예배는 언제 시작해요?","c":["오전 11시","오후 11시","오전 7시","오후 1시"]}],
+  "review": [
+   {"q":"들은 시간은 몇 시인가요?","c":["6:30","6:00","5:30","7:30"],"say":"It's half past six."},
+   {"q":"Tuesday 다음에 오는 요일은?","c":["Wednesday","Monday","Thursday","Friday"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: The class is at 10 ___. (오전)","c":["a.m.","p.m.","day","week"]},
+   {"q":"들은 문장에서 오늘은 무슨 요일인가요?","c":["토요일","월요일","수요일","일요일"],"say":"Today is Saturday."},
+   {"q":"요일을 묻는 영어 질문은?","c":["What day is it?","What time is it?","How old are you?","Where is it?"]},
+   {"q":"들은 시간은 몇 시인가요?","c":["8시 30분","8시 정각","7시 30분","9시 30분"],"say":"It's eight thirty."}
+  ]
+ }},
+
+{"id":"e10","name":"There is / There are","level":2,"prereq":["e04","e06"],"minutes":12,
+ "body":["# '~이 있어요' = There is (하나) / There are (여러 개)",{"img": "e10-there.svg", "cap": "하나면 There is, 여럿이면 There are"},["There is a cafe near my house.","우리 집 근처에 카페가 있어요."],["There are two chairs.","의자가 두 개 있어요."],
+  "# 없을 때 / 물을 때",["There isn't any milk.","우유가 없어요."],["Is there a bathroom here?","여기 화장실 있어요?"],["Are there many people?","사람 많아요?"]],
+ "items":{
+  "lesson":[
+   {"q":"빈칸: There ___ three cats.","c":["are","is","am","be"]},
+   {"q":"'여기 주차장 있어요?'를 기본 의문문 어순으로 쓰면?","c":["Is there a parking lot here?","There a parking lot is here?","Are there a parking lot here?","Is it parking lot here?"],"x":"말할 때는 끝을 올려 There is ~?라고도 하지만, 기본 어순은 Is there ~?예요."},
+   {"type":"fill","q":"There ___ a problem. (문제가 하나 있어요)","a":["is"]},
+   {"say":"There are five people in my family.","q":"들은 문장의 뜻은?","c":["우리 가족은 다섯 명이에요","우리 가족은 네 명이에요","가족 다섯 명이 왔어요","다섯 명이 사는 집을 찾아요"]}],
+  "diag":[
+   {"q":"빈칸: There ___ a big tree.","c":["is","are","am","have"]},
+   {"type":"order","q":"순서대로: 이 근처에 은행 있어요?","t":["bank","Is","near","a","there","here"],"a":"Is there a bank near here"},
+   {"q":"빈칸: There ___ any chairs. (의자가 없어요)","c":["aren't","isn't","don't","not"]}],
+  "month":[
+   {"q":"빈칸: ___ there a pharmacy nearby?","c":["Is","Are","Do","Does"]}],
+  "review": [
+   {"q":"빈칸에 알맞은 말을 고르세요: ___ two windows in this room.","c":["There are","There is","It are","They is"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: ___ a note on the desk.","c":["There is","There are","They are","It have"]},
+   {"q":"근처에 가게가 있는지 묻는 문장은?","c":["Is there a shop near here?","Are there a shop near here?","Does there a shop near here?","Is it shop near here?"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: ___ any juice left. (주스가 남아 있지 않아요)","c":["There isn't","There aren't","It don't","There not"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: ___ many buses today?","c":["Are there","Is there","Do there","Does there"]},
+   {"q":"들은 영어 문장의 뜻은?","c":["접시가 두 개 있어요","접시가 하나 있어요","컵이 두 개 있어요","접시가 없어요"],"say":"There are two plates."}
+  ]
+ }},
+
+{"id":"e11","name":"현재진행 (~하는 중)","level":3,"prereq":["e06","e07"],"minutes":12,
+ "body":["# 지금 ~하는 중이에요 = be동사 + 동사ing",{"img": "e11-ing.svg", "cap": "평소에 하는 일 vs 지금 하는 중"},["I'm eating lunch.","점심 먹는 중이에요."],["She is talking on the phone.","그녀는 통화 중이에요."],["What are you doing?","뭐 하고 있어요?"],
+  "! -ing 붙이는 법: make → making (e 빼기), run → running (끝 자음 한 번 더)",
+  "# 평소 vs 지금",["I play the drums.","나는 드럼을 쳐요. (평소)"],["I'm playing the drums now.","지금 드럼 치는 중이에요."]],
+ "items":{
+  "lesson":[
+   {"q":"'그들은 지금 노래하는 중이에요'는?","c":["They are singing now.","They sing now are.","They singing now.","They are sing now."]},
+   {"type":"fill","q":"I am ___ a letter. (write)","a":["writing"]},
+   {"say":"What are you doing?","q":"들은 말에 알맞은 대답은?","c":["I'm cooking.","I cook.","Yes, I am.","I'm a cook."]},
+   {"q":"빈칸: He is ___ to school. (run)","c":["running","runing","runs","run"]}],
+  "diag":[
+   {"q":"빈칸: Look! It ___ snowing.","c":["is","are","does","am"]},
+   {"type":"fill","q":"We are ___ a movie. (watch)","a":["watching"]},
+   {"q":"'지금 뭐 해?'는?","c":["What are you doing?","What do you do?","What you doing are?","What is you doing?"]}],
+  "month":[
+   {"type":"order","q":"순서대로: 아기가 자고 있어요.","t":["is","The","sleeping","baby"],"a":"The baby is sleeping"}],
+  "review": [
+   {"q":"빈칸에 알맞은 말을 고르세요: The baby is ___ now. (sleep)","c":["sleeping","sleep","sleeps","slept"]},
+   {"q":"지금 일어나고 있는 일을 나타내는 문장은?","c":["They are making lunch.","They make lunch every day.","They made lunch yesterday.","They will lunch."]},
+   {"q":"들은 사람이 지금 하고 있는 일은?","c":["버스를 기다리는 중","버스를 운전하는 중","버스를 탔어요","버스를 찾았어요"],"say":"I am waiting for the bus."},
+   {"q":"빈칸에 알맞은 말을 고르세요: Dad is ___ a photo. (take)","c":["taking","takeing","takes","took"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: We ___ studying right now.","c":["are","is","am","do"]},
+   {"q":"들은 영어 문장의 뜻은?","c":["소년이 달리는 중이에요","소년이 달려요","소년이 달렸어요","소년이 걷는 중이에요"],"say":"The boy is running."}
+  ]
+ }},
+
+{"id":"e12","name":"can (할 수 있어요 / 해도 돼요?)","level":3,"prereq":["e08"],"minutes":12,
+ "body":["# can + 동사원형 = ~할 수 있어요",{"img": "e12-can.svg", "cap": "can: 할 수 있다 · 부탁 · 허락"},["I can play the guitar.","나는 기타를 칠 수 있어요."],["She can't swim.","그녀는 수영을 못 해요."],
+  "! can 뒤 동사에는 -s를 안 붙여요: He can sings (X) → He can sing (O)",
+  "# 부탁·허락 묻기",["Can you help me?","도와줄 수 있어요?"],["Can I sit here?","여기 앉아도 돼요?"],"대답: Sure. / Of course. / Sorry, I can't."],
+ "items":{
+  "lesson":[
+   {"q":"빈칸: He can ___ Chinese.","c":["speak","speaks","speaking","to speak"]},
+   {"q":"'창문 좀 열어 줄래요?'는?","c":["Can you open the window?","Can open you the window?","You can open the window.","Do you can open the window?"]},
+   {"say":"Can I use your phone?","q":"들은 말의 뜻은?","c":["휴대폰 좀 써도 돼요?","휴대폰 쓸 수 있어요.","내 휴대폰 써요.","휴대폰 있어요?"]},
+   {"type":"fill","q":"I ___ drive. (운전 못 해요)","a":["can't","cannot","can not"]}],
+  "diag":[
+   {"q":"빈칸: She can ___ well.","c":["dance","dances","dancing","to dance"]},
+   {"type":"order","q":"순서대로: 다시 말해 줄래요?","t":["you","Can","that","say","again"],"a":"Can you say that again"},
+   {"say":"Sorry, I can't.","q":"들은 말의 뜻은?","c":["미안해요, 못 해요","미안해요, 할 수 있어요","괜찮아요","다시 말해 줘요"]}],
+  "month":[
+   {"q":"틀린 문장은?","c":["He cans cook.","He can cook.","Can he cook?","He can't cook."]}],
+  "review": [
+   {"q":"빈칸에 알맞은 말을 고르세요: My little sister can ___ very fast.","c":["run","runs","running","ran"]},
+   {"q":"정중하게 부탁하는 표현은?","c":["Can you pass the salt?","Do you can pass salt?","Can you to pass the salt?","Are you pass the salt?"]},
+   {"q":"들은 사람은 무엇을 허락해 달라고 하나요?","c":["휴대폰을 써도 되는지","휴대폰을 샀는지","전화번호가 뭔지","휴대폰이 어디 있는지"],"say":"Can I use your phone?"},
+   {"q":"빈칸에 알맞은 말을 고르세요: A fish ___ walk.","c":["can't","doesn't can","isn't","don't"]},
+   {"q":"'Can he cook?'에 '네'라고 답할 때 빈칸에 알맞은 말은? Yes, he ___.","c":["can","does","is","cooks"]},
+   {"q":"들은 말은 무엇을 부탁하나요?","c":["도와줄 수 있는지","함께 갈 수 있는지","운전할 수 있는지","앉아도 되는지"],"say":"Can you help me?"}
+  ]
+ }},
+
+{"id":"e13","name":"전치사 in / on / at","level":3,"prereq":["e09"],"minutes":12,
+ "body":["# 시간: at 시각 · on 요일·날짜 · in 달·해·아침",{"img": "e13-prep.svg", "cap": "장소와 시간의 in · on · at"},["at 7 o'clock, on Sunday, in May","7시에, 일요일에, 5월에"],["in the morning, at night","아침에, 밤에"],
+  "# 장소: in 안에 · on 위에 · at 그 지점에",["The keys are in the bag.","열쇠는 가방 안에 있어요."],["The phone is on the table.","휴대폰은 탁자 위에 있어요."],["I'm at church.","나는 교회에 있어요."]],
+ "items":{
+  "lesson":[
+   {"q":"빈칸: See you ___ Friday.","c":["on","in","at","to"]},
+   {"q":"빈칸: The concert is ___ 8 p.m.","c":["at","on","in","to"]},
+   {"type":"fill","q":"My birthday is ___ March.","a":["in"]},
+   {"say":"The book is on the desk.","q":"책은 어디 있나요?","c":["책상 위","책상 안","책상 아래","책상 옆"]}],
+  "diag":[
+   {"q":"빈칸: I wake up ___ 6 a.m.","c":["at","in","on","to"]},
+   {"q":"빈칸: We have practice ___ Saturday.","c":["on","in","at","to"]},
+   {"type":"fill","q":"There is milk ___ the fridge. (냉장고 안)","a":["in"]}],
+  "month":[
+   {"q":"빈칸: I study English ___ night.","c":["at","in","on","to"]}],
+  "review": [
+   {"q":"빈칸에 알맞은 말을 고르세요: Our trip is ___ July. (7월에)","c":["in","on","at","to"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: The photo is ___ the wall. (벽에 붙어)","c":["on","in","at","under"]},
+   {"q":"정오를 나타내는 올바른 표현은?","c":["at noon","in noon","on noon","at the July"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: The children are ___ the garden. (안에)","c":["in","on","at","to"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: We eat dinner ___ the evening.","c":["in","on","at","to"]},
+   {"q":"들은 영어 문장에서 열쇠는 어디에 있나요?","c":["가방 안","탁자 위","문 옆","상자 아래"],"say":"The keys are in my bag."}
+  ]
+ }},
+
+{"id":"e14","name":"be동사 과거 (was / were)","level":3,"prereq":["e06"],"minutes":12,
+ "body":["# 과거의 be동사: am·is → was, are → were",{"img": "e14-was.svg", "cap": "am·is → was, are → were"},["I was tired yesterday.","나는 어제 피곤했어요."],["They were at home.","그들은 집에 있었어요."],
+  "# 부정·질문",["It wasn't easy.","쉽지 않았어요."],["Were you busy last week?","지난주에 바빴어요?"],"대답: Yes, I was. / No, I wasn't."],
+ "items":{
+  "lesson":[
+   {"q":"빈칸: She ___ sick last night.","c":["was","were","is","be"]},
+   {"type":"fill","q":"We ___ happy then. (그때 행복했어요)","a":["were"]},
+   {"q":"'Was the movie good?'에 '아니요'로 답하면?","c":["No, it wasn't.","No, it weren't.","No, it didn't.","No, it isn't."]},
+   {"say":"The weather was great.","q":"들은 문장의 뜻은?","c":["날씨가 아주 좋았어요","날씨가 아주 좋아요","날씨가 안 좋았어요","날씨가 좋을 거예요"]}],
+  "diag":[
+   {"q":"빈칸: You ___ late yesterday.","c":["were","was","are","did"]},
+   {"type":"fill","q":"I ___ at church on Sunday. (있었어요)","a":["was"]},
+   {"q":"'어제 집에 있었어요?'는?","c":["Were you at home yesterday?","Did you at home yesterday?","Was you at home yesterday?","Are you at home yesterday?"]}],
+  "month":[
+   {"say":"Where were you?","q":"들은 말의 뜻은?","c":["어디 있었어요?","어디 있어요?","어디 가요?","어디 갈 거예요?"]}],
+  "review": [
+   {"q":"빈칸에 알맞은 말을 고르세요: The keys ___ on the table this morning.","c":["were","was","are","is"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: My cousin ___ sick yesterday.","c":["was","were","is","be"]},
+   {"q":"문법에 맞는 부정문을 고르세요.","c":["We weren't noisy.","We wasn't noisy.","We aren't noisy yesterday.","We don't noisy."]},
+   {"q":"들은 사람이 어디에 있었나요?","c":["도서관에","학교에","집에","가게에"],"say":"I was at the library."},
+   {"q":"빈칸에 알맞은 말을 고르세요: ___ the weather warm last week?","c":["Was","Were","Is","Did"]},
+   {"q":"들은 영어 문장의 뜻은?","c":["우리는 공원에 있었어요","우리는 공원에 있어요","우리는 공원에 갈 거예요","그들은 공원에 있었어요"],"say":"We were at the park."}
+  ]
+ }},
+
+{"id":"e15","name":"일반동사 과거 (played, went)","level":3,"prereq":["e08","e14"],"minutes":12,
+ "body":["# 과거: 동사 + -ed",{"img": "e15-past.svg", "cap": "-ed 규칙과 외울 불규칙 동사"},["I played soccer yesterday.","나는 어제 축구를 했어요."],["She worked late.","그녀는 늦게까지 일했어요."],
+  "# 자주 쓰는 불규칙 동사 (외워야 해요)","go → went · eat → ate · have → had · see → saw · come → came · get → got · make → made · buy → bought",
+  ["We went to Jeonju last weekend.","우리는 지난 주말에 전주에 갔어요."],
+  "# 부정·질문: did / didn't + 동사원형",["I didn't sleep well.","잠을 잘 못 잤어요."],["Did you eat lunch?","점심 먹었어요?"]],
+ "items":{
+  "lesson":[
+   {"q":"빈칸: I ___ a new phone last month. (buy)","c":["bought","buyed","buy","buys"]},
+   {"type":"fill","q":"She ___ to bed early yesterday. (go)","a":["went"]},
+   {"q":"틀린 문장은?","c":["Did you saw him?","Did you see him?","I saw him.","I didn't see him."],"x":"did 뒤에는 동사원형(see)"},
+   {"say":"I didn't eat breakfast.","q":"들은 문장의 뜻은?","c":["아침을 안 먹었어요","아침을 먹었어요","아침을 안 먹어요","아침을 먹을 거예요"]}],
+  "diag":[
+   {"q":"have의 과거는?","c":["had","haved","has","have"]},
+   {"type":"fill","q":"We ___ a movie last night. (see)","a":["saw"]},
+   {"type":"order","q":"순서대로: 너 어제 일했어?","t":["work","Did","yesterday","you"],"a":"Did you work yesterday"}],
+  "month":[
+   {"q":"빈칸: He ___ come to practice yesterday.","c":["didn't","doesn't","wasn't","don't"]}],
+  "review": [
+   {"q":"빈칸에 알맞은 말을 고르세요: They ___ the game on TV last night. (watch)","c":["watched","watch","watches","watching"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: I ___ a sandwich at noon. (eat)","c":["ate","eated","eats","eating"]},
+   {"q":"어제 일을 묻는 문장 중 문법에 맞는 것은?","c":["Did you call your friend?","Do you called your friend?","Did you called your friend?","Were you call your friend?"]},
+   {"q":"들은 사람들이 한 일은?","c":["박물관을 방문했어요","박물관에서 일해요","집에 있었어요","박물관에 갈 거예요"],"say":"We visited the museum."},
+   {"q":"빈칸에 알맞은 말을 고르세요: She didn't ___ the message.","c":["see","saw","sees","seeing"]},
+   {"q":"들은 영어 문장의 뜻은?","c":["그는 케이크를 샀어요","그는 케이크를 만들어요","그는 케이크를 살 거예요","그는 케이크를 먹어요"],"say":"He bought a cake."}
+  ]
+ }},
+
+{"id":"e16","name":"미래 (will / be going to)","level":4,"prereq":["e15"],"minutes":12,
+ "body":["# 미래 1: will + 동사원형 (지금 정함·약속·예상)",{"img": "e16-future.svg", "cap": "will(지금 정함) vs be going to(이미 계획)"},["I'll call you later.","나중에 전화할게요."],["It will rain tomorrow.","내일 비가 올 거예요."],
+  "# 미래 2: be going to + 동사원형 (이미 정한 계획)",["I'm going to visit my parents this weekend.","이번 주말에 부모님 댁에 갈 거예요."],
+  "# 부정·질문",["I won't be late.","안 늦을게요."],["Are you going to come?","올 거예요?"],"! won't = will not"],
+ "items":{
+  "lesson":[
+   {"q":"빈칸: I ___ help you. (도와줄게요)","c":["will","am","do","going"]},
+   {"type":"fill","q":"We are going ___ eat out tonight.","a":["to"]},
+   {"q":"'안 늦을게요'는?","c":["I won't be late.","I don't be late.","I willn't be late.","I not will be late."]},
+   {"say":"What are you going to do tomorrow?","q":"들은 말의 뜻은?","c":["내일 뭐 할 거예요?","어제 뭐 했어요?","지금 뭐 해요?","내일 어디 가요?"]}],
+  "diag":[
+   {"q":"빈칸: She will ___ here soon.","c":["be","is","being","to be"]},
+   {"type":"order","q":"순서대로: 나는 운동을 시작할 거예요.","t":["going","I'm","start","exercising","to"],"a":"I'm going to start exercising"},
+   {"type":"fill","q":"It ___ be cold tomorrow. (추울 거예요)","a":["will"]}],
+  "month":[
+   {"q":"빈칸: ___ you going to watch the game?","c":["Are","Will","Do","Is"]}],
+  "review": [
+   {"q":"빈칸에 알맞은 말을 고르세요: I think our team ___ win.","c":["will","is","does","was"]},
+   {"q":"미리 정한 계획을 나타내는 문장은?","c":["We are going to paint the room.","We going paint the room.","We will going paint the room.","We are go to paint the room."]},
+   {"q":"빈칸에 알맞은 말을 고르세요: He ___ forget your birthday. (잊지 않을게)","c":["won't","isn't","doesn't","didn't"]},
+   {"q":"들은 사람은 무엇을 가져오겠다고 했나요?","c":["물을 가져올게요","물을 마셨어요","물을 사고 싶어요","물이 어디 있나요?"],"say":"I'll bring some water."},
+   {"q":"빈칸에 알맞은 말을 고르세요: Are they going ___ stay tonight?","c":["to","for","at","with"]},
+   {"q":"들은 사람이 오늘 밤 할 일은?","c":["전화할 거예요","집에 갈 거예요","일할 거예요","만날 거예요"],"say":"I will call you tonight."}
+  ]
+ }},
+
+{"id":"e17","name":"의문사 질문 (what, where …)","level":4,"prereq":["e08"],"minutes":12,
+ "body":["# 의문사를 맨 앞에",{"img": "e17-wh.svg", "cap": "의문사 6개와 예문"},"what 무엇 · where 어디 · when 언제 · who 누구 · why 왜 · how 어떻게",
+  ["Where do you live?","어디 살아요?"],["What do you do?","무슨 일 하세요?"],["When is the meeting?","회의 언제예요?"],["Why are you sad?","왜 슬퍼요?"],["How was your weekend?","주말 어땠어요?"],
+  "! How much? (얼마예요?) · How many? (몇 개?) · How long? (얼마나 오래?)"],
+ "items":{
+  "lesson":[
+   {"q":"'어디 가요?'는?","c":["Where are you going?","What are you going?","Where you are going?","When are you going?"]},
+   {"type":"fill","q":"___ is your favorite song? (무엇)","a":["What"]},
+   {"say":"How much is this?","q":"들은 말의 뜻은?","c":["이거 얼마예요?","이거 몇 개예요?","이거 뭐예요?","이거 누구 거예요?"]},
+   {"q":"'Who is that man?'에 알맞은 대답은?","c":["He's my uncle.","He's in the room.","He's fine.","At 3 o'clock."]}],
+  "diag":[
+   {"q":"'왜 늦었어요?'는?","c":["Why were you late?","Why you were late?","What were you late?","How were you late?"]},
+   {"type":"fill","q":"___ do you get up? (언제)","a":["When","What time"]},
+   {"say":"How was your trip?","q":"들은 말에 알맞은 대답은?","c":["It was great.","By bus.","Next week.","With my wife."]}],
+  "month":[
+   {"type":"order","q":"순서대로: 무슨 음악 좋아해요?","t":["music","What","you","do","like"],"a":"What music do you like"}],
+  "review": [
+   {"q":"빈칸에 알맞은 말을 고르세요: ___ is your new teacher? (누구)","c":["Who","Where","When","Why"]},
+   {"q":"장소를 묻는 질문은?","c":["Where is the station?","When is the station?","Who is the station?","Why is the station?"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: ___ do you go to bed? (언제)","c":["When","Who","Where","What"]},
+   {"q":"들은 질문은 무엇을 묻나요?","c":["이걸 어떻게 만드는지","이걸 누가 샀는지","이게 어디 있는지","이게 언제 왔는지"],"say":"How do you make this?"},
+   {"q":"빈칸에 알맞은 말을 고르세요: ___ are you laughing? (왜)","c":["Why","What","Who","Where"]},
+   {"q":"들은 질문은 무엇을 물어보나요?","c":["우체국이 어디 있는지","우체국이 언제 여는지","우체국이 누구 것인지","우체국이 왜 닫혔는지"],"say":"Where is the post office?"}
+  ]
+ }},
+
+{"id":"e18","name":"빈도부사 (always, sometimes …)","level":4,"prereq":["e07"],"minutes":12,
+ "body":["# 얼마나 자주?",{"img": "e18-freq.svg", "cap": "얼마나 자주? always ~ never"},"always 항상 · usually 보통 · often 자주 · sometimes 가끔 · rarely 거의 안 · never 절대 안",
+  "# 위치: 일반동사 앞, be동사 뒤",["I usually get up at 7.","나는 보통 7시에 일어나요."],["She is always kind.","그녀는 항상 친절해요."],["We never skip breakfast.","우리는 아침을 절대 거르지 않아요."],
+  ["How often do you exercise?","운동 얼마나 자주 해요?"]],
+ "items":{
+  "lesson":[
+   {"q":"자연스러운 문장은?","c":["I often drink tea.","I drink often tea.","Often I tea drink.","I drink tea often is."]},
+   {"q":"빈칸: He is ___ late. (절대 안 늦어요)","c":["never","always","sometimes","usually"]},
+   {"type":"fill","q":"___ often do you go there? (얼마나 자주)","a":["How"]},
+   {"say":"I sometimes play the piano.","q":"들은 문장의 뜻은?","c":["가끔 피아노를 쳐요","항상 피아노를 쳐요","피아노를 절대 안 쳐요","자주 피아노를 쳐요"]}],
+  "diag":[
+   {"q":"자연스러운 문장은?","c":["She is usually busy.","She busy usually is.","Usually she busy is.","She usually busy."]},
+   {"q":"'거의 안'은?","c":["rarely","often","always","usually"]},
+   {"type":"order","q":"순서대로: 나는 항상 일찍 와요.","t":["early","I","come","always"],"a":"I always come early"}],
+  "month":[
+   {"say":"How often do you practice?","q":"들은 말에 알맞은 대답은?","c":["Every day.","Yesterday.","At home.","Last year."]}],
+  "review": [
+   {"q":"자연스러운 영어 문장을 고르세요.","c":["I often read before bed.","I read often before bed always.","I am read often before bed.","Often I am read before bed."]},
+   {"q":"빈칸에 알맞은 말을 고르세요: She is ___ polite to guests. (항상)","c":["always","never is","oftenly","usually is"]},
+   {"q":"들은 사람들이 얼마나 자주 외식하나요?","c":["가끔","절대","항상","거의 매일"],"say":"We sometimes eat out."},
+   {"q":"빈칸에 알맞은 말을 고르세요: He ___ forgets his keys. (절대 안)","c":["never","always","usually","often"]},
+   {"q":"단어 순서가 바른 문장을 고르세요.","c":["They usually take the train.","They take usually the train.","They are usually take the train.","Usually they are take the train."]},
+   {"q":"들은 영어 문장의 뜻은?","c":["나는 보통 걸어서 출근해요","나는 가끔 걸어서 출근해요","나는 항상 늦어요","나는 절대 걷지 않아요"],"say":"I usually walk to work."}
+  ]
+ }},
+
+{"id":"e19","name":"want to / like ~ing","level":4,"prereq":["e08"],"minutes":12,
+ "body":["# want to + 동사원형 = ~하고 싶어요",{"img": "e19-want.svg", "cap": "want to ~ / like ~ing"},["I want to learn English.","영어를 배우고 싶어요."],["Do you want to come with us?","우리랑 같이 갈래요?"],
+  "# like + 동사ing = ~하는 걸 좋아해요",["I like singing.","나는 노래하는 걸 좋아해요."],["She doesn't like driving at night.","그녀는 밤에 운전하는 걸 안 좋아해요."],
+  "! like to sing도 같은 뜻이에요. would like to는 want to보다 공손해요 (I'd like to …).",["I'd like to order, please.","주문할게요."]],
+ "items":{
+  "lesson":[
+   {"type":"fill","q":"I want ___ go home.","a":["to"]},
+   {"q":"빈칸: He likes ___ photos.","c":["taking","take","takes","took"]},
+   {"say":"Do you want to grab coffee?","q":"들은 말의 뜻은?","c":["커피 한잔할래요?","커피 좋아해요?","커피 샀어요?","커피 마셨어요?"]},
+   {"q":"가장 공손한 말은?","c":["I'd like to ask something.","I want ask something.","I wanna ask something.","Ask something."]}],
+  "diag":[
+   {"q":"빈칸: I want ___ a new guitar.","c":["to buy","buying","buy","buys"]},
+   {"type":"fill","q":"We like ___ together. (sing)","a":["singing","to sing"]},
+   {"say":"I'd like to order, please.","q":"들은 말의 뜻은?","c":["주문할게요","주문했어요","주문 안 할래요","주문하고 싶었어요"]}],
+  "month":[
+   {"type":"order","q":"순서대로: 나는 여행하는 걸 좋아해요.","t":["traveling","I","like"],"a":"I like traveling"}],
+  "review": [
+   {"q":"빈칸에 알맞은 말을 고르세요: We want ___ watch the new film.","c":["to","for","at","with"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: He likes ___ in the sea. (swim)","c":["swimming","swim","to swimming","swims"]},
+   {"q":"음식을 주문할 때 정중한 표현은?","c":["I'd like to have soup, please.","I want have soup now.","I'd like having soup please.","I am like soup."]},
+   {"q":"들은 질문은 함께하고 싶은지 묻나요?","c":["같이하고 싶은지","집에 있는지","무엇을 먹는지","언제 출발했는지"],"say":"Do you want to join us?"},
+   {"q":"빈칸에 알맞은 말을 고르세요: She wants ___ a doctor.","c":["to be","being to","be to","is"]},
+   {"q":"들은 영어 문장의 뜻은?","c":["나는 체스 두는 것을 좋아해요","나는 체스를 배우고 싶어요","나는 체스 게임을 샀어요","나는 체스를 안 해요"],"say":"I like playing chess."}
+  ]
+ }},
+
+{"id":"e20","name":"비교급 (bigger, more ~ than)","level":4,"prereq":["e06"],"minutes":12,
+ "body":["# ~보다 더 … = 비교급 + than",{"img": "e20-comp.svg", "cap": "비교급 + than"},"짧은 말: -er → tall → taller, big → bigger, easy → easier",["My brother is taller than me.","형은 나보다 키가 커요."],
+  "긴 말: more + 형용사 → more expensive, more beautiful",["This phone is more expensive than that one.","이 휴대폰이 저것보다 비싸요."],
+  "! 불규칙: good → better, bad → worse",["I feel better today.","오늘 몸이 더 나아요."]],
+ "items":{
+  "lesson":[
+   {"q":"빈칸: Seoul is ___ than Gunsan.","c":["bigger","biger","more big","big"]},
+   {"type":"fill","q":"This song is ___ than that one. (good)","a":["better"]},
+   {"q":"빈칸: English is ___ than I thought.","c":["more difficult","difficulter","most difficult","difficult more"]},
+   {"say":"Today is colder than yesterday.","q":"들은 문장의 뜻은?","c":["오늘이 어제보다 추워요","어제가 오늘보다 추웠어요","오늘은 추워요","오늘이 어제보다 따뜻해요"]}],
+  "diag":[
+   {"q":"빈칸: She is ___ than her sister.","c":["younger","more young","youngest","young"]},
+   {"type":"fill","q":"My cold is ___ today. (bad → 더 나빠요)","a":["worse"]},
+   {"q":"빈칸: This is ___ than I expected.","c":["easier","easyer","more easy","easiest"]}],
+  "month":[
+   {"say":"Your English is getting better.","q":"들은 말의 뜻은?","c":["영어가 점점 좋아지고 있어요","영어를 잘해요","영어가 더 어려워요","영어가 점점 나빠져요"]}],
+  "review": [
+   {"q":"빈칸에 알맞은 말을 고르세요: This box is ___ than that one. (작은)","c":["smaller","more small","smallest","small"]},
+   {"q":"빈칸에 알맞은 말을 고르세요: My new shoes are ___ than my old ones. (좋은)","c":["better","gooder","best","more good"]},
+   {"q":"비교 표현이 문법에 맞는 문장을 고르세요.","c":["Winter is colder than fall.","Winter is more cold fall.","Winter is cold than fall.","Winter colder fall."]},
+   {"q":"들은 두 가방 중 어느 쪽이 더 무거운가요?","c":["파란 가방","빨간 가방","둘 다 같아요","모르겠어요"],"say":"The blue bag is heavier than the red bag."},
+   {"q":"빈칸에 알맞은 말을 고르세요: This exercise is ___ than the last one. (쉬운)","c":["easier","easyer","more easy","easiest"]},
+   {"q":"들은 말에서 어느 방이 더 밝나요?","c":["내 방","네 방","둘 다 같아요","알 수 없어요"],"say":"My room is brighter than yours."}
+  ]
+ }}
+]
+}
