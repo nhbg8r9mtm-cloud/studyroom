@@ -1,10 +1,11 @@
-const CACHE = 'studyroom-phone-ec587e7-2026-11-23';
+const CACHE = 'studyroom-phone-2ea2fec-2026-11-23';
 const PRECACHE = ["./", "./index.html", "./app.js", "./engine.js", "./style.css", "./marks.css", "./manifest.webmanifest", "./icon.svg", "./icon-180.png", "./icon-512.png", "./content/english.json", "./content/logic.json", "./content/finalcut.json", "./content/img/e01-greet.svg", "./content/img/e02-be.svg", "./content/img/e03-pron.svg", "./content/img/e04-aan.svg", "./content/img/e05-num.svg", "./content/img/e06-beq.svg", "./content/img/e07-s.svg", "./content/img/e08-do.svg", "./content/img/e09-time.svg", "./content/img/e10-there.svg", "./content/img/e11-ing.svg", "./content/img/e12-can.svg", "./content/img/e13-prep.svg", "./content/img/e14-was.svg", "./content/img/e15-past.svg", "./content/img/e16-future.svg", "./content/img/e17-wh.svg", "./content/img/e18-freq.svg", "./content/img/e19-want.svg", "./content/img/e20-comp.svg", "./content/img/fc01-guide.svg", "./content/img/fc02-guide.svg", "./content/img/fc03-guide.svg", "./content/img/fc04-guide.svg", "./content/img/fc05-guide.svg", "./content/img/fc06-guide.svg", "./content/img/fc07-guide.svg", "./content/img/fc08-guide.svg", "./content/img/g01-mix.svg", "./content/img/g02-strip.svg", "./content/img/g03-meter.svg", "./content/img/g04-pan.svg", "./content/img/g05-eq.svg", "./content/img/g06-comp.svg", "./content/img/g07-send.svg", "./content/img/g08-steps.svg", "./content/img/l-comp.jpg", "./content/img/l-eq.jpg", "./content/img/l-inspector.jpg", "./content/img/l-main.jpg", "./content/img/l-mixer.jpg", "./content/img/l-plugins.jpg", "./content/img/l-region.jpg", "./content/img/l-send.jpg", "./content/img/l-verb.jpg", "./content/img/p01-guide.svg", "./content/img/p02-guide.svg", "./content/img/p03-guide.svg", "./content/img/p04-guide.svg", "./content/img/p05-guide.svg"];
 
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE);
     await cache.addAll(PRECACHE);
+    await self.skipWaiting();
   })());
 });
 

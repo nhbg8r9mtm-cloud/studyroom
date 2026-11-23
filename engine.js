@@ -2,8 +2,20 @@
 export const INTERVALS=[1,3,7,14], MASTER=.8, PASS=.6, RECENT=8, BUDGET=15, REVIEW_MIN=4, MAX_REVIEWS=2, REVIEW_ITEMS=3;
 export const SUBJECTS=['english','logic','finalcut'];
 export function makeBackup(events,exportedAt=new Date().toISOString()){return{formatVersion:1,exportedAt,events:JSON.parse(JSON.stringify(events))}}
-export function readBackup(payload){if(!payload||payload.formatVersion!==1||!Array.isArray(payload.events))throw Error('지원하지 않는 백업 형식이에요.');
-  return payload.events.filter(x=>x&&typeof x==='object'&&SUBJECTS.includes(x.subject))}
+export async function persistRestore(events,persist){await persist(events); return events}
+export function readBackup(payload){if(!payload||!Number.isInteger(payload.formatVersion)||payload.formatVersion!==1||!Array.isArray(payload.events))throw Error('지원하지 않는 백업 형식이에요.');
+  const validDay=value=>typeof value==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(value)&&!Number.isNaN(Date.parse(value+'T00:00:00Z'));
+  const valid=e=>{if(!e||typeof e!=='object'||Array.isArray(e)||!SUBJECTS.includes(e.subject)||!validDay(e.day))return false;
+    const text=key=>typeof e[key]==='string'&&e[key].length>0, score=()=>typeof e.score==='number'&&Number.isFinite(e.score)&&e.score>=0&&e.score<=1;
+    if(e.type==='start_choice')return e.mode==='basic';
+    if(e.type==='answer')return text('item')&&typeof e.ok==='boolean'&&['lesson','review','diag'].includes(e.mode);
+    if(e.type==='lesson_done')return text('lesson')&&score();
+    if(e.type==='review_done')return text('concept')&&score()&&Array.isArray(e.items)&&e.items.every(x=>typeof x==='string');
+    if(e.type==='check')return text('lesson')&&Number.isInteger(e.idx)&&e.idx>=0&&typeof e.done==='boolean';
+    if(e.type==='known')return Array.isArray(e.concepts)&&e.concepts.length>0&&e.concepts.every(x=>typeof x==='string');
+    return false};
+  const events=payload.events.filter(valid);
+  return{events,rejectedCount:payload.events.length-events.length}}
 export function addDays(day,n){const d=new Date(day+'T12:00:00Z');
   d.setUTCDate(d.getUTCDate()+n);
   return d.toISOString().slice(0,10)}

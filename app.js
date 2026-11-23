@@ -1,6 +1,8 @@
 import * as E from './engine.js';
 const $=s=>document.querySelector(s), app=$('#app'), STORE='studyroom-phone', FORMAT=1, tabs=[['today','오늘','🏠'],['english','영어','🔤'],['logic','Logic','🎚️'],['finalcut','Final Cut','🎬'],['settings','설정','⚙️']];
-let data={},events=[],page='today',warning='',quizBusy=false;
+let data={},events=[],page='today',warning='',quizBusy=false,storageReadFailed=false,solvingQuiz=false,pendingReload=false,reloadHandled=false;
+const STORAGE_WARNING='기록 저장소를 읽지 못했어요. 백업을 복원하거나 앱을 다시 열 때까지 기록을 저장할 수 없어요.';
+function warn(message){warning=storageReadFailed?STORAGE_WARNING:message}
 const day=()=>{const d=new Date();
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
 function node(tag,attrs={},...children){const n=document.createElement(tag);
@@ -18,8 +20,10 @@ async function openDb(){return new Promise((resolve,reject)=>{const r=indexedDB.
 async function load(){try{db=await openDb();
     events=await new Promise((resolve,reject)=>{const r=db.transaction('state').objectStore('state').get('main'); r.onsuccess=()=>resolve(r.result?.events||[]); r.onerror=()=>reject(r.error)})}catch(err){db=null;
     try{events=JSON.parse(localStorage.getItem(STORE)||'{"events":[]}').events||[]}catch{events=[];
-      warning='기록 저장소를 읽지 못했어요. 백업을 복원해 주세요.'}}}
+      storageReadFailed=true;
+      warning=STORAGE_WARNING}}}
 async function save(ev){const next=[...events,{...ev,day:day()}],payload={formatVersion:FORMAT,events:next,updatedAt:new Date().toISOString()};
+  if(storageReadFailed){warning=STORAGE_WARNING; render(); return false}
   try{if(db)await new Promise((resolve,reject)=>{const tx=db.transaction('state','readwrite'); tx.objectStore('state').put(payload,'main'); tx.oncomplete=resolve; tx.onerror=()=>reject(tx.error); tx.onabort=()=>reject(tx.error)});
     else localStorage.setItem(STORE,JSON.stringify(payload));
     events=next;
@@ -30,7 +34,7 @@ async function save(ev){const next=[...events,{...ev,day:day()}],payload={format
 function ct(s){return E.buildContent(data[s])}function state(s){return E.subjectView(ct(s),events,day())}function enabledLessons(s){const c=ct(s),S=E.replay(c,events);
   return c.order.filter(id=>!E.missing(c,S,(c.lessons[id].kind==='practice'?c.lessons[id].concepts:c.lessons[id].concepts.flatMap(x=>c.concepts[x].prereq||[]))).length)}
 function setPage(p){page=p;
-  render()}
+  render(); applyPendingReload()}
 function renderTabs(){const nav=$('#tabs');
   nav.replaceChildren(...tabs.map(([id,label,icon])=>node('button',{class:page===id?'on':'',on:()=>setPage(id)},node('span',{},icon),label)))}
 function render(){renderTabs();
@@ -134,11 +138,11 @@ function openPractice(s,id){const c=ct(s),L=c.lessons[id],S=E.replay(c,events),c
 function reviewQuizItems(s,cid){return E.pickReview(ct(s),E.replay(ct(s),events),cid).map(id=>ct(s).items[id])}
 function runReview(s,cid){const it=reviewQuizItems(s,cid);
   quiz(s,it,'review',cid)}
-function quiz(s,items,mode,id){let i=0,score=0,chosen=[];
+function quiz(s,items,mode,id){let i=0,score=0,chosen=[]; solvingQuiz=true;
   const show=()=>{if(i>=items.length){const event=mode==='review'?{type:'review_done',subject:s,concept:id,score:score/items.length,items:chosen}:{type:'lesson_done',subject:s,lesson:id,score:score/items.length};
-      save(event).then(ok=>{if(ok){const box=card(node('h2',{},`${score}/${items.length} 정답`),node('p',{},mode==='review'?(score/items.length>=.8?'좋아요! 다음 복습 간격이 늘어나요.':score/items.length>=.6?'통과. 같은 간격으로 복습해요.':'내일 다시 복습해요.'):(score/items.length>=E.PASS?'통과했어요! 내일 복습이 나와요.':'60% 미만이라 내일 복습해요. 통과하면 다음 수업이 열려요.')),btn('오늘로',()=>setPage('today'),'primary')); app.replaceChildren(box)} });
+      save(event).then(ok=>{if(ok){solvingQuiz=false;const box=card(node('h2',{},`${score}/${items.length} 정답`),node('p',{},mode==='review'?(score/items.length>=.8?'좋아요! 다음 복습 간격이 늘어나요.':score/items.length>=.6?'통과. 같은 간격으로 복습해요.':'내일 다시 복습해요.'):(score/items.length>=E.PASS?'통과했어요! 내일 복습이 나와요.':'60% 미만이라 내일 복습해요. 통과하면 다음 수업이 열려요.')),btn('오늘로',()=>setPage('today'),'primary')); app.replaceChildren(box); applyPendingReload()} });
       return}const it=items[i],box=card(node('div',{class:'meta'},`${mode==='review'?'복습':'수업'} · ${i+1}/${items.length}`),node('div',{class:'progress'},node('i',{style:`width:${i/items.length*100}%`})));
-    if(it.type==='listen')box.append(btn('🔊 듣기',()=>speak(it.say),'small'));
+    if(it.type==='listen')box.append(btn('🔊 듣기',()=>speak(it.say,box),'small'));
     box.append(node('div',{class:'q'},it.q));
     const answer=async(value,correct,right)=>{if(quizBusy)return;
       quizBusy=true;
@@ -157,45 +161,49 @@ function quiz(s,items,mode,id){let i=0,score=0,chosen=[];
       box.append(line,bank,btn('확인',()=>{if(picked.length===it.t.length){const mine=picked.map(x=>x.w).join(' '); answer(mine,norm(mine)===norm(it.a),it.a)}},'primary'))}box.append(btn('나가기',()=>setPage('today'),'small'));
     app.replaceChildren(box)};
   show()}
-function speak(text){if(!('speechSynthesis'in window)||!('SpeechSynthesisUtterance'in window))return;
-  const u=new SpeechSynthesisUtterance(text);
-  u.lang='en-US';
-  speechSynthesis.speak(u)}
+function speak(text,box){const fallback=()=>{if(!box.querySelector('.speech-fallback'))box.append(node('p',{class:'muted speech-fallback'},`듣기 기능을 사용할 수 없어요. 문장: ${text}`))};
+  if(!('speechSynthesis'in window)||!('SpeechSynthesisUtterance'in window)){fallback(); return}
+  try{const u=new SpeechSynthesisUtterance(text); u.lang='en-US'; u.onerror=fallback; speechSynthesis.speak(u)}catch{fallback()}}
 function settings(){const box=card(node('h2',{},'기록과 백업'),node('p',{class:'muted'},`저장한 답·수업 기록 ${events.length}개 · 이 기기에만 저장돼요.`),btn('JSON 백업 저장 / 공유',backup,'primary'));
   const file=node('input',{type:'file',accept:'application/json,.json',class:'input'});
   file.addEventListener('change',()=>restore(file.files?.[0]));
   box.append(node('p',{},'백업 파일에서 복원'),file,btn('복원하기',()=>restore(file.files?.[0])));
+  box.append(node('p',{class:'muted'},'사파리와 홈 화면 앱은 기록이 따로라, 홈 화면에 추가한 뒤에는 홈 화면 앱으로만 쓰세요.'));
   if(!localStorage.getItem('phone-home-tip'))box.append(node('div',{class:'banner'},'아이폰 Safari: 공유 버튼 → 홈 화면에 추가를 선택하면 앱처럼 열 수 있어요.',btn('확인',()=>{localStorage.setItem('phone-home-tip','1'); render()},'small')));
   app.append(box)}
-function backup(){const payload=E.makeBackup(events),blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),file=new File([blob],`공부방-백업-${day()}.json`,{type:'application/json'});
+async function backup(){const payload=E.makeBackup(events),blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),file=new File([blob],`공부방-백업-${day()}.json`,{type:'application/json'});
+  let shared=false;
+  if(navigator.share){try{if(navigator.canShare?.({files:[file]})){await navigator.share({files:[file],title:'공부방 기록 백업'}); shared=true}}catch(err){if(err.name==='AbortError')return}}
+  if(!shared){
   const a=document.createElement('a');
   a.href=URL.createObjectURL(blob);
   a.download=file.name;
   a.click();
-  URL.revokeObjectURL(a.href);
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
   localStorage.setItem('phone-backup-date',day());
-  warning='백업 파일을 만들었어요.';
-  render();
-  if(navigator.canShare?.({files:[file]}))navigator.share({files:[file],title:'공부방 기록 백업'}).catch(()=>{})}
+  warn('백업 파일을 만들었어요.');
+  render()}
 async function restore(file){if(!file)return;
-  try{const next=E.readBackup(JSON.parse(await file.text()));
-    if(!confirm(`백업의 기록 ${next.length}개로 현재 기록을 바꿀까요?`))return;
-    events=[];
-    if(db)await new Promise((resolve,reject)=>{const tx=db.transaction('state','readwrite'); tx.objectStore('state').put({formatVersion:FORMAT,events:next,updatedAt:new Date().toISOString()},'main'); tx.oncomplete=resolve; tx.onerror=()=>reject(tx.error)});
-    else localStorage.setItem(STORE,JSON.stringify({formatVersion:FORMAT,events:next}));
-    events=next;
-    warning='백업 기록을 복원했어요.';
-    render()}catch(err){warning='복원 실패: '+err.message;
+  try{const result=E.readBackup(JSON.parse(await file.text())),{events:next,rejectedCount}=result;
+    if(!next.length){warn(`복원하지 않았어요. 유효한 기록이 없고 ${rejectedCount}개 항목을 거부했어요.`); render(); return}
+    if(!confirm(`백업의 기록 ${next.length}개로 현재 기록을 바꿀까요? (거부한 항목 ${rejectedCount}개)`))return;
+    events=await E.persistRestore(next,async saved=>{if(db)await new Promise((resolve,reject)=>{const tx=db.transaction('state','readwrite'); tx.objectStore('state').put({formatVersion:FORMAT,events:saved,updatedAt:new Date().toISOString()},'main'); tx.oncomplete=resolve; tx.onerror=()=>reject(tx.error); tx.onabort=()=>reject(tx.error)});
+      else localStorage.setItem(STORE,JSON.stringify({formatVersion:FORMAT,events:saved,updatedAt:new Date().toISOString()}))});
+    storageReadFailed=false;
+    warning=`백업 기록 ${next.length}개를 복원했어요. 거부한 항목 ${rejectedCount}개.`;
+    render()}catch(err){warn('복원 실패: '+err.message);
     render()}}
 async function init(){try{for(const s of E.SUBJECTS){const r=await fetch(`content/${s}.json`);
       if(!r.ok)throw Error(`${s} 자료를 읽지 못했어요`);
       data[s]=await r.json()}await load();
     $('#version').textContent=window.PHONE_VERSION||'';
-    if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{warning='오프라인 저장 설정을 완료하지 못했어요.'});
+    if('serviceWorker'in navigator){navigator.serviceWorker.addEventListener('controllerchange',()=>{if(reloadHandled)return; reloadHandled=true; pendingReload=true; applyPendingReload()});
+      navigator.serviceWorker.register('./sw.js').then(registration=>registration.update()).catch(()=>warn('오프라인 저장 설정을 완료하지 못했어요.'))}
     const first=localStorage.getItem('phone-first-open')||day();
     localStorage.setItem('phone-first-open',first);
     const last=localStorage.getItem('phone-backup-date');
-    if(E.daysBetween(last||first,day())>7)warning='마지막 백업이 7일 넘었어요. 설정에서 기록을 백업해 주세요.';
+    if(E.daysBetween(last||first,day())>7)warn('마지막 백업이 7일 넘었어요. 설정에서 기록을 백업해 주세요.');
     if(!localStorage.getItem('phone-home-tip'))page='settings';
     render()}catch(e){app.replaceChildren(card(node('h2',{},'자료를 불러오지 못했어요'),node('p',{class:'muted'},e.message+' · 처음 열 때는 인터넷 연결이 필요해요. 다시 열어 주세요.')))}}
 init();
+function applyPendingReload(){if(pendingReload&&!solvingQuiz){pendingReload=false; location.reload()}}
