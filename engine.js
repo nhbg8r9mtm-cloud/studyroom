@@ -1,6 +1,6 @@
 // phone engine: engine.py의 휴대폰 학습 경로를 동일 상수로 옮김
 export const INTERVALS=[1,3,7,14], MASTER=.8, PASS=.6, RECENT=8, BUDGET=15, REVIEW_MIN=4, MAX_REVIEWS=2, REVIEW_ITEMS=3;
-export const SUBJECTS=['english','logic','finalcut'];
+export const SUBJECTS=['english','logic','finalcut','color'];
 export function makeBackup(events,exportedAt=new Date().toISOString()){return{formatVersion:1,exportedAt,events:JSON.parse(JSON.stringify(events))}}
 export async function persistRestore(events,persist){await persist(events); return events}
 export function readBackup(payload){if(!payload||!Number.isInteger(payload.formatVersion)||payload.formatVersion!==1||!Array.isArray(payload.events))throw Error('지원하지 않는 백업 형식이에요.');

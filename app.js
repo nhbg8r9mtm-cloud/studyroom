@@ -1,5 +1,5 @@
 import * as E from './engine.js';
-const $=s=>document.querySelector(s), app=$('#app'), STORE='studyroom-phone', FORMAT=1, tabs=[['today','오늘','🏠'],['english','영어','🔤'],['logic','Logic','🎚️'],['finalcut','Final Cut','🎬'],['settings','설정','⚙️']];
+const $=s=>document.querySelector(s), app=$('#app'), STORE='studyroom-phone', FORMAT=1, tabs=[['today','오늘','🏠'],['english','영어','🔤'],['logic','Logic','🎚️'],['finalcut','Final Cut','🎬'],['color','색보정','🎨'],['settings','설정','⚙️']];
 let data={},events=[],page='today',warning='',quizBusy=false,storageReadFailed=false,solvingQuiz=false,pendingReload=false,reloadHandled=false;
 const STORAGE_WARNING='기록 저장소를 읽지 못했어요. 백업을 복원하거나 앱을 다시 열 때까지 기록을 저장할 수 없어요.';
 function warn(message){warning=storageReadFailed?STORAGE_WARNING:message}
